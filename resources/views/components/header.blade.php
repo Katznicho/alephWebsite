@@ -13,7 +13,7 @@
                     </div><!-- .flex-* -->
 
                     <div class="flex-md-6 flex-lg-3">
-                        <a href="https://www.youtube.com/@alephthefathershouse1693" _blank
+                        <a href={{ $socialMedia?->youtube||'https://www.youtube.com/@alephthefathershouse1693' }} _blank
                             class="button button--promotion button-block-sm button-inline-lg">YouTube</a>
                     </div><!-- .flex-* -->
                 </div>
@@ -30,7 +30,7 @@
             <div class="header__nav">
 
                 <div class="header__logo brand--logo">
-                    <a href="{{route('welcome')}}"><img src="{{asset('template/aleph.png')}}"
+                    <a href="{{route('home')}}"><img src="{{asset('template/aleph.png')}}"
                             alt="Aleph Ministries"></a>
                 </div>
 
@@ -53,10 +53,10 @@
                         </div>
                     </li><!-- .header__extra ends -->
 
-                    <li class="header__list active"><a href="{{route('welcome')}}">Home</a></li>
+                    <li class="header__list active"><a href="{{route('home')}}">Home</a></li>
                     <!-- .header__list ends -->
 
-                    <li class="header__list"><a href="{{route('about')}}">About</a></li><!-- .header__list ends -->
+                    <li class="header__list"><a href="{{route('aboutus')}}">About</a></li><!-- .header__list ends -->
 
                     <li class="header__list">
                         <a href="" class="dropdown-link caret">Ministries</a>
@@ -149,18 +149,16 @@
                     <!-- .header__list ends -->
 
                     <li class="header__list"><a href="{{route('contact')}}">Contact</a></li>
+                    <li class="header__list"><a href="{{route('gallery')}}">Gallery</a></li>
+                    <li class="header__list"><a href="{{route('give')}}">Give</a></li>
+                    <li class="header__list"><a href="{{route('calendar')}}">Calendar</a></li>
                     <!-- .header__list ends -->
 
                 </ul><!-- .header__navitems ends -->
 
                 <!-- Contains Search button and donation button -->
                 <div class="header__extra desktop-version">
-                    <div class="search">
-                        <div class="search-icon">
-                            <button class="modal-button" data-modal-target="site-search"><i
-                                    class="ri-search-line"></i></button>
-                        </div>
-                    </div>
+                    
 
                     <div class="cta hide-on-sm show-on-lg">
                         <a href="{{route('donations')}}" class="button button--primary button--fill">Donate</a>

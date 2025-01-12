@@ -1,6 +1,15 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\GiveController;
+use App\Http\Controllers\WelcomeController;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +23,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-})->name("welcome");
+    // return view('welcome');
+    return redirect()->route('home');
+})->name("home");
 
-Route::get("/about", function () {
-    return view("pages.aboutus");
-})->name("about");
+Route::get('/home', [WelcomeController::class, 'index'])->name('home');
+Route::get("/aboutus", [AboutUsController::class, "index"])->name("aboutus");
+Route::get("contact", [AboutUsController::class, "index"])->name("contact");
+Route::get("give", [GiveController::class, "index"])->name("give");
+Route::get("gallery", [GalleryController::class, "index"])->name("gallery");
+Route::get("calendar", [AboutUsController::class, "index"])->name("calendar");
+//donations
+Route::get("/donations", [DonationController::class, "index"])->name("donations");
 
-Route::get("/contact", function () {
-    return view("pages.contactus");
-})->name("contact");
+
+
 
 //ministries-layout
 Route::get("/ministries-layout", function () {
@@ -46,9 +60,7 @@ Route::get("/sermons-single", function () {
 })->name("sermons-single");
 
 //donations
-Route::get("/donations", function () {
-    return view("pages.donation");
-})->name("donations");
+Route::get("/donations", [DonationController::class, "index"])->name("donations");
 
 //thankyou
 Route::get("/thankyou", function () {
